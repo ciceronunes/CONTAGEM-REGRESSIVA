@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* dados gerais */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(113, 129, 186);
+  gap: 30px;
+  position: relative;
+}
+/* configuração inserir dados */
+.inserir-dados {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;
+  gap: 30px;
+  /* display: none; */
+}
+
+.inserir-dados-data-e-hora {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.inserir-dados-data-e-hora input {
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  background-color: #90e74d;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  /* display: none; */
+}
+/* configuração pós click - mostrar contagem regressiva */
+img {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  /* display: block; */
+}
+.result {
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: space-between;
+  text-align: center;
+  font-size: 40px;
+  width: 600px;
+  height: 130px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* display: grid; */
+}
