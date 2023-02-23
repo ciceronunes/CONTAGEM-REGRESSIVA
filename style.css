@@ -5,77 +5,110 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* dados gerais */
-.container {
+body {
+  background: #7197ba;
   width: 100vw;
   height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.DataScreen {
+  width: 500px;
+  height: 200px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.DataScreen button {
+  display: block;
+  grid-column: 1/-1;
+  padding: 15px 30px;
+  place-self: center;
+  border-radius: 4px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #90e74d;
+}
+
+.DataScreen button:hover {
+  opacity: .75;
+}
+
+.InsertDateAndTimeData {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(113, 129, 186);
-  gap: 30px;
-  position: relative;
-}
-/* configuração inserir dados */
-.inserir-dados {
-  display: flex;
-  flex-direction: row;
-  height: 100px;
-  align-items: center;
-  gap: 30px;
-  /* display: none; */
+  font-size: 1.25rem;
+  gap: 5px;
 }
 
-.inserir-dados-data-e-hora {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 10px;
-  font-size: 20px;
-}
-
-.inserir-dados-data-e-hora input {
+.InsertDateAndTimeData input {
   border: none;
   width: 150px;
   height: 50px;
   font-size: 20px;
   border-radius: 5px;
+  text-align: center;
 }
 
-button {
-  display: block;
-  background-color: #90e74d;
-  padding: 15px 30px;
-  border-radius: 4px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  /* display: none; */
-}
-/* configuração pós click - mostrar contagem regressiva */
-img {
+.ScreenResult {
   display: none;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  /* display: block; */
-}
-.result {
-  display: none;
-  grid-template-columns: repeat(4, 1fr);
-  align-content: space-between;
   text-align: center;
-  font-size: 40px;
-  width: 600px;
-  height: 130px;
-  border-radius: 6px;
+  width: 800px;
+  height: 150px;
   background: rgba(255, 255, 255, 0.35);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(13.5px);
   -webkit-backdrop-filter: blur(13.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* display: grid; */
+}
+
+.Counter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 100px;
+}
+
+.NameCounter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 20px;
+}
+
+@media(max-width:800px) {
+  .ScreenResult {
+    grid-template-columns: 1fr 1fr;
+    width: 300px;
+    height: 500px;
+  }
+
+  .Counter {
+    order: 2;
+    grid-template-columns: 1fr;
+    font-size: 80px;
+    align-content: space-around;
+  }
+
+  .NameCounter {
+    grid-template-columns: 1fr;
+    font-size: 23px;
+    align-content: space-around;
+  }
+
+}
+
+@media(max-width:500px) {
+  .DataScreen {
+    width: 300px;
+    height: 200px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
