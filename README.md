@@ -1,12 +1,16 @@
 # TIMER
 
+## 📹 Project Video Presentation
+<div align="center">
+  <video src="https://user-images.githubusercontent.com/92452033/220960452-4e53a552-301c-4320-8da5-fdc694304188.mp4">
+</div>
 
+> Acesse o projeto online **[AQUI](https://ciceronunes.github.io/CONTAGEM-REGRESSIVA/)**
 
-> Timer
 ## 📝 Sobre
 O projeto consiste em um timer onde o usuário insere uma data e hora qualquer e o sistema ira retornar uma contagem regressiva.
 
-Os valores inseridos são verificados antes da execução, e caso a data e/ou hora inserida for inferior a data e/ou hora local do usuário será dado um alerta.
+Os valores inseridos são verificados antes da execução, caso a data e/ou hora inserida for inferior a data e/ou hora local do usuário será dado um alerta.
 
 ## 📝 O que usamos nesse projeto
 Projeto desenvolvido para exercitarmos a manipulação de dados usando JS.
