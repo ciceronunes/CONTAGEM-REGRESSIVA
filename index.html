@@ -6,38 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
+    <title>Timer</title>
 </head>
 
-<body class="container">
-    <div class="inserir-dados">
-        <div class="inserir-dados-data-e-hora">
-            <label for="inserirdata">DATA</label>
-            <input id="inserirdata" type="date">
+<body>
+    <main class="DataScreen">
+        <div class="InsertDateAndTimeData">
+            <label for="InsertDate">DATA</label>
+            <input id="InsertDate" type="date">
         </div>
-        <div class="inserir-dados-data-e-hora">
-            <label for="inserirhora">HORA</label>
-            <input id="inserirhora" type="time">
+        <div class="InsertDateAndTimeData">
+            <label for="InsertTime">HORA</label>
+            <input id="InsertTime" type="time">
         </div>
-    </div>
-
-    <button onclick="chamando()">Contagem Regressiva</button>
-
-    <img src="./assets/fundo-niver.jpg" alt="">
-    <div class="result">
-        <span>DD</span>
-        <span>HH</span>
-        <span>MM</span>
-        <span>SS</span>    
-        
-        <p id="dia"></p>
-        <p id="hora"></p>
-        <p id="minuto"></p>
-        <p id="segundo"></p>
-    </div>
-
-
-
+        <button onclick="verifiyExecute()">Contagem Regressiva</button>
+    </main>
+    <main class="ScreenResult">
+        <dvi class="Counter">
+            <p id="Day"></p>
+            <p id="Hour"></p>
+            <p id="Minute"></p>
+            <p id="Second"></p>
+        </dvi>
+        <div class="NameCounter">
+            <span>Dias</span>
+            <span>Horas</span>
+            <span>Minutos</span>
+            <span>Segundos</span>
+        </div>
+    </main>
 </body>
 <script src="./index.js"></script>
 
