@@ -1,59 +1,67 @@
-const MudancaTela = () => {
-  const container = document.getElementsByClassName("inserir-dados")[0];
-  const button = document.getElementsByTagName("button")[0];
-  const img = document.getElementsByTagName("img")[0];
-  const result = document.getElementsByClassName("result")[0];
-  container.style.display = "none";
-  button.style.display = "none";
-  img.style.display = "block";
-  result.style.display = "grid";
-};
+/*
+Lógica foi resumida em três funções:
+- verifiyExecute = Esta é a verificação se a data e hora inserida pelo usuário é maior do que o dia e hora que iremos "rodar" a aplicação, se for verdadeiro é chamada a próxima função caso contrário será chamado um alert informando.
 
-const DateOurYour = () => {
-  //Conversão dos dados do input em Date
-  const dateFinal = new Date(
-    document.getElementById("inserirdata").value +
-      "T" +
-      document.getElementById("inserirhora").value
+- dateOurYour = Esta função é chamada após a execução da função (verifiyExecute). Ela recebe os dados e os trata efetuando a conversão da diferença das datas e retornando para o usuario um Timer, no final desta função e função (changeScreen) é chamada.
+
+- changeScreen = Está tem a função de efetuar algumas mudanças nos estados de algumas classes assim efetuando a mudança de backgroud e display.
+*/
+const verifiyExecute = () => {
+  const dateAndTimeEntered = new Date(
+    document.getElementById("InsertDate").value +
+    "T" +
+    document.getElementById("InsertTime").value
   );
 
-  const date = new Date();
+  const currentDateAndTime = new Date();
+
+  if (dateAndTimeEntered.getTime() - currentDateAndTime.getTime() > 0) setInterval(dateOurYour, 1000)
+  else alert("Data e hora fornecido inferior a data e hora atual")
+};
+
+const dateOurYour = () => {
+  const dateAndTimeEntered = new Date(
+    document.getElementById("InsertDate").value +
+    "T" +
+    document.getElementById("InsertTime").value
+  );
+
+  const currentDateAndTime = new Date();
+
   const conversion = {
-    dia: 60 * 60 * 24,
-    horas: 60 * 60,
-    minutos: 60,
+    day: 60 * 60 * 24,
+    hour: 60 * 60,
+    minute: 60,
   };
 
-  //lógica contagem regressiva
-  if (dateFinal.getTime() - date.getTime() > 0) {
-    const datainicio = (dateFinal.getTime() - date.getTime()) / 1000;
+  const date = (dateAndTimeEntered.getTime() - currentDateAndTime.getTime()) / 1000;
 
-    const dia = Math.trunc(datainicio / conversion.dia);
-    const dias = dia < 10 ? "0" + dia : dia;
+  const day = Math.trunc(date / conversion.day);
+  const hour = Math.trunc((date % conversion.day) / conversion.hour);
+  const minute = Math.trunc(((date % conversion.day) % conversion.hour) / conversion.minute);
+  const second = Math.trunc(((date % conversion.day) % conversion.hour) % conversion.minute);
 
-    const hora = Math.trunc((datainicio % conversion.dia) / conversion.horas);
-    const horas = hora < 10 ? "0" + hora : hora;
+  const days = day < 10 ? "0" + day : day;
+  const hours = hour < 10 ? "0" + hour : hour;
+  const minutes = minute < 10 ? "0" + minute : minute;
+  const seconds = second < 10 ? "0" + second : second;
 
-    const minuto = Math.trunc(
-      ((datainicio % conversion.dia) % conversion.horas) / conversion.minutos
-    );
-    const minutos = minuto < 10 ? "0" + minuto : minuto;
-
-    const segundo = Math.trunc(
-      ((datainicio % conversion.dia) % conversion.horas) % conversion.minutos
-    );
-    const segundos = segundo < 10 ? "0" + segundo : segundo;
-
-    document.getElementById("dia").innerText = dias;
-    document.getElementById("hora").innerText = horas;
-    document.getElementById("minuto").innerText = minutos;
-    document.getElementById("segundo").innerText = segundos;
-    //chamando mudança de tela
-    MudancaTela();
-  } else {
-    clearInterval(DateOurYour);
-    
-  }
+  document.getElementById("Day").innerText = days;
+  document.getElementById("Hour").innerText = hours;
+  document.getElementById("Minute").innerText = minutes;
+  document.getElementById("Second").innerText = seconds;
+  //chamando mudança de tela
+  changeScreen();
 };
-const chamando = () => setInterval(DateOurYour, 1000);
 
+const changeScreen = () => {
+  const dataScreen = document.getElementsByClassName("DataScreen")[0];
+  const changeBackground = document.getElementsByTagName("body")[0];
+  const screenResult = document.getElementsByClassName("ScreenResult")[0];
+
+  dataScreen.style.display = "none";
+  changeBackground.style.background = "url('assets/fogos-de-artificio.jpg')";
+  changeBackground.style.backgroundOrigin = "content-box";
+  changeBackground.style.backgroundPosition = "center";
+  screenResult.style.display = "grid";
+};
